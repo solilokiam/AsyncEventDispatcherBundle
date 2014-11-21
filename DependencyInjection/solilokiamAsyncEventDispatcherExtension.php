@@ -23,6 +23,7 @@ class solilokiamAsyncEventDispatcherExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $loader->load('common.xml');
+        $loader->load('redis.xml');
     }
 }

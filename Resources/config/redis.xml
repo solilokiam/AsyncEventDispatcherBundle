@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="solilokiam_async_event_dispatcher" class="Solilokiam\AsyncEventDispatcher\AsyncEventDispatcher">
+            <argument type="service" id="solilokiam_async_event_dispatcher.driver"/>
+        </service>
+
+        <service id="solilokiam_async_event_dispatcher.driver" class="Solilokiam\AsyncEventDispatcher\EventDriver\RedisDriver">
+            <argument type="service" id="solilokiam_async_event_dispatcher.driver.config"/>
+            <argument type="service" id="solilokiam_async_event_dispatcher.serializer" />
+        </service>
+
+        <service id="solilokiam_async_event_dispatcher.driver.config" class="Solilokiam\AsyncEventDispatcher\EventDriver\RedisDriverConfig">
+            <call method="setDatabase">
+                <argument>%async_event_dispatcher_redis_database%</argument>
+            </call>
+            <call method="setPassword">
+                <argument>%asynv_event_dispatcher_redis_password%</argument>
+            </call>
+            <call method="setPort">
+                <argument>%asynv_event_dispatcher_redis_port%</argument>
+            </call>
+            <call method="setHost">
+                <argument>%asynv_event_dispatcher_redis_host%</argument>
+            </call>
+            <call method="setKeyPrefix">
+                <argument>%asynv_event_dispatcher_redis_key_prefix%</argument>
+            </call>
+        </service>
+    </services>
+</container>
