@@ -1,0 +1,17 @@
+{
+    "name": "solilokiam/async-event-dispatcher-bundle",
+    "description": "A symfony 2 bundle for solilokiam/async-event-dispatcher",
+    "authors": [
+        {
+            "name": "Miquel Company Rodriguez",
+            "email": "miquel@solilokiam.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "symfony/framework-bundle": ">=2.1,<3.0",
+        "symfony/yaml": ">=2.1,<3.0",
+        "solilokiam/async-event-dispatcher": "dev-master"
+    }
+}
